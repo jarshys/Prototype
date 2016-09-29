@@ -69,7 +69,9 @@ public class FacultyWindow extends JFrame implements ActionListener {
 		case "Create User":
 			CreateUserWindow CreateUserWindow = new CreateUserWindow();
 			break;
-		}
-		
+		case "Change ID":
+			ChangeIdWindow ChangeIdWindow = new ChangeIdWindow();
+			break;
+		}	
 	}
 }
