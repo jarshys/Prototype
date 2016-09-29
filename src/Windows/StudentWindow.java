@@ -4,23 +4,27 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class faculty extends JFrame {
+public class StudentWindow extends JFrame {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -8437962221390200655L;
+	private static final long serialVersionUID = 8887427084755705187L;
 
-	public faculty() {
+	public StudentWindow() {
 		// TODO Auto-generated method stub
-		JFrame frame = new JFrame("Faculty");
+		
+		JFrame frame = new JFrame("Student");
 		frame.setBounds(100, 100, 498, 345);
 		frame.setLocationRelativeTo(null); //center window on screen
+		
 		JPanel panel = new JPanel();
-		JLabel label = new JLabel("Welcome Faculty!");
+		JLabel label = new JLabel("Welcome Student!");
 		panel.add(label);
 
 		frame.add(panel);
 		frame.setVisible(true);
 	}
+
+	
 }

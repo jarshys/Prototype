@@ -58,6 +58,8 @@ public class LoginWindow extends JFrame implements ActionListener{
 		btnLogin.addActionListener(this);
 		btnLogin.setBounds(176, 72, 89, 23);
 		getContentPane().add(btnLogin);
+		
+		setVisible(true);
 	}
 
 	@SuppressWarnings("unused")
@@ -71,17 +73,17 @@ public class LoginWindow extends JFrame implements ActionListener{
 			if(username.equals("Jorge"))
 			{
 				JOptionPane.showMessageDialog(null, "You logged in as Student");
-				student one = new student();
+				StudentWindow StudentWindow = new StudentWindow();
 			}
 			else if(username.equals("Aaron"))
 			{
 				JOptionPane.showMessageDialog(null, "You logged in as Instructor");
-				instructor two = new instructor();
+				InstructorWindow InstructorWindow = new InstructorWindow();
 			}
 			else if(username.equals("Luis"))
 			{
 				JOptionPane.showMessageDialog(null, "You logged in as Faculty/Staff");
-				faculty three = new faculty();
+				FacultyWindow FacultyWindow = new FacultyWindow();
 			}
 			else
 			{
