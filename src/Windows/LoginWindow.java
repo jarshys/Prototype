@@ -60,6 +60,7 @@ public class LoginWindow extends JFrame implements ActionListener{
 		getContentPane().add(btnLogin);
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
