@@ -1,3 +1,5 @@
+package src;
+
 import Windows.LoginWindow;
 
 public class Application {

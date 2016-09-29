@@ -70,20 +70,24 @@ public class LoginWindow extends JFrame implements ActionListener{
 			if(username.equals("Jorge"))
 			{
 				JOptionPane.showMessageDialog(null, "You logged in as Student");
+				student one = new student();
 			}
 			else if(username.equals("Aaron"))
 			{
 				JOptionPane.showMessageDialog(null, "You logged in as Instructor");
+				instructor two = new instructor();
 			}
 			else if(username.equals("Luis"))
 			{
 				JOptionPane.showMessageDialog(null, "You logged in as Faculty/Staff");
+				faculty three = new faculty();
 			}
 			else
 			{
 				JOptionPane.showMessageDialog(null, "Invalid Username/Password, please check your credentials and try again", null, JOptionPane.ERROR_MESSAGE);
 			}
 		}
+		dispose();
 		
 	}
 }
