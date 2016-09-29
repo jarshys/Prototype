@@ -72,6 +72,9 @@ public class FacultyWindow extends JFrame implements ActionListener {
 		case "Change ID":
 			ChangeIdWindow ChangeIdWindow = new ChangeIdWindow();
 			break;
+		case "Reset Password":
+			ResetPasswordWindow ResetPasswordWindow = new ResetPasswordWindow();
+			break;
 		}	
 	}
 }
