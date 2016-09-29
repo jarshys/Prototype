@@ -75,6 +75,9 @@ public class FacultyWindow extends JFrame implements ActionListener {
 		case "Reset Password":
 			ResetPasswordWindow ResetPasswordWindow = new ResetPasswordWindow();
 			break;
+		case "Lookup Student":
+			LookupStudentWindow LookupStudentWindow = new LookupStudentWindow();
+			break;
 		}	
 	}
 }
