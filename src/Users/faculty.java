@@ -1,5 +1,6 @@
 package Users;
 
+
 public class faculty extends user {
 
 	private int department;
