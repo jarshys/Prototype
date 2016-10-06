@@ -19,7 +19,7 @@ public class student extends user {
 
 	public void setSemesterstaken(int[] semesterstaken) {
 		this.semesterstaken = semesterstaken;
-		System.out.print("TEST");
+	
 	}
 
 
