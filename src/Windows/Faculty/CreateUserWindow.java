@@ -4,15 +4,34 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import Database.Database;
+
 import javax.swing.JComboBox;
 import javax.swing.JButton;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+
 import javax.swing.DefaultComboBoxModel;
 
-public class CreateUserWindow extends JFrame {
-	/**
-	 * 
-	 */
+
+
+public class CreateUserWindow extends JFrame implements ActionListener {
+	public ActionListener createuser;
 	
+	private static final long serialVersionUID = -322498080578139492L;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
+	private JTextField textField_5;
+	private JTextField textField_6;
+	private JComboBox<String> comboBox;
+	private Database db = new Database();
+
 	public CreateUserWindow() {
 	JFrame frmCreateUser = new JFrame("Create User");
 	frmCreateUser.setTitle("Create User");
@@ -90,25 +109,63 @@ public class CreateUserWindow extends JFrame {
 	label_7.setBounds(10, 347, 74, 14);
 	panel.add(label_7);
 	
-	JComboBox<String> comboBox = new JComboBox<String>();
+	comboBox = new JComboBox<String>();
 	comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"Student", "Instructor", "Faculty"}));
 	comboBox.setBounds(10, 372, 414, 20);
 	panel.add(comboBox);
 	
+
 	JButton button = new JButton("Save");
+	button.addActionListener(this);
 	button.setBounds(10, 407, 414, 23);
 	panel.add(button);
 	frmCreateUser.setVisible(true);
+
 	}
 	
+
+	@Override
+	public void actionPerformed(ActionEvent e)  {
+
+		JButton caller = (JButton) e.getSource();
+		
+		if(caller.getText().equals("Save"))
+		{
+			String role = comboBox.getSelectedItem().toString();
+			String name = textField.getText() + " " + textField_1.getText();
+			String address = textField_2.getText() + System.lineSeparator() + textField_3.getText() + ", " + textField_4.getText() + ", USA";
+			String number = textField_5.getText();
+			String email = textField_6.getText();
+			
+			if(role.equals("Student")){
+				try {
+					db.addStudent(name, address, number, email);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			
+			if(role.equals("Faculty")){
+				try {
+					db.addFaculty(name, address, number, email);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			
+			if(role.equals("Instructor")){
+				try {
+					db.addInstructor(name, address, number, email);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		}
+	}
+
 	
-	private static final long serialVersionUID = -322498080578139492L;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
 	
 }

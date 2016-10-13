@@ -3,6 +3,10 @@ package Users;
 
 public class faculty extends user {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5150529805879291221L;
 	private int department;
 	
 	public faculty(int id, String name, String password, String address, String number, String email) {

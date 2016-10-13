@@ -1,6 +1,10 @@
 package Users;
 
 public class instructor extends user {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -343477414282033618L;
 	private String dateHired;
 	private Boolean hasTenure;
 	private int[] currentCourses;

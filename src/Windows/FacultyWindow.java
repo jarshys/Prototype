@@ -12,6 +12,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
+import Users.faculty;
+
 public class FacultyWindow extends JFrame implements ActionListener {
 
 	/**
@@ -19,14 +21,14 @@ public class FacultyWindow extends JFrame implements ActionListener {
 	 */
 	private static final long serialVersionUID = -8437962221390200655L;
 
-	public FacultyWindow() {
+	public FacultyWindow(faculty user) {
 		// TODO Auto-generated method stub
 		JFrame frame = new JFrame("Faculty");
 		frame.setBounds(100, 100, 498, 345);
 		frame.setLocationRelativeTo(null);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblWelcomeJohnSmith = new JLabel("Welcome John Smith (Faculty)");
+		JLabel lblWelcomeJohnSmith = new JLabel("Welcome "+user.getName());
 		lblWelcomeJohnSmith.setBounds(10, 11, 462, 14);
 		frame.getContentPane().add(lblWelcomeJohnSmith);
 		

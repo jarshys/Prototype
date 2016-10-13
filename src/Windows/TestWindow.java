@@ -79,9 +79,9 @@ public class TestWindow extends JFrame implements ActionListener{
 		case "Show Instructor Window":
 			InstructorWindow InstructorWindow = new InstructorWindow();
 			break;
-		case "Show Faculty Window":
-			FacultyWindow FacultyWindow = new FacultyWindow();
-			break;
+//		case "Show Faculty Window":
+//			FacultyWindow FacultyWindow = new FacultyWindow();
+//			break;
 		}
 		
 	}

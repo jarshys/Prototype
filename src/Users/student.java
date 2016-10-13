@@ -1,6 +1,10 @@
 package Users;
 
 public class student extends user {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6421758157471557234L;
 	private int numberofclassestaken;
 	private int currentsemester;
 	private int[] semesterstaken;

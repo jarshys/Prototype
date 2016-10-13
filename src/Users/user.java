@@ -1,6 +1,13 @@
 package Users;
 
-public class user {
+import java.io.Serializable;
+
+public class user implements Serializable{
+
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8439464442677055059L;
 private int id;
 private String name;
 private String password;
@@ -64,4 +71,22 @@ public String getEmail() {
 public void setEmail(String email) {
 	this.email = email;
 }
+
+public void sendpassword(){
+	System.out.println("Sending password ("+password+") to " + name +" - "+ email);
+}
+
+public void print()
+{
+	System.out.println("User-------------------");
+	System.out.println("Role: "+this.getClass().getName());
+	System.out.println("id: "+id);
+	System.out.println("name: "+name);
+	System.out.println("password: "+password);
+	System.out.println("address: "+address);
+	System.out.println("number:"+number);
+	System.out.println("email: "+email);
+
+}
+
 }

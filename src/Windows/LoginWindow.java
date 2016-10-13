@@ -3,8 +3,15 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+
+import Database.Database;
+import Users.faculty;
+
 import javax.swing.JPasswordField;
 import javax.swing.JLabel;
 
@@ -18,6 +25,7 @@ public class LoginWindow extends JFrame implements ActionListener{
 	private JTextField txtUsername;
 	private JPasswordField pwdPassword;
 	JButton btnLogin;
+	Database db = new Database();
 
 	/**
 	 * Create the application.
@@ -69,28 +77,32 @@ public class LoginWindow extends JFrame implements ActionListener{
 		if(e.getSource() == btnLogin)
 		{
 			String username = txtUsername.getText();
-			//char[] password = pwdPassword.getPassword();
-			if(username.equals("Jorge"))
-			{
-				JOptionPane.showMessageDialog(null, "You logged in as Student");
-				StudentWindow StudentWindow = new StudentWindow();
-			}
-			else if(username.equals("Aaron"))
-			{
-				JOptionPane.showMessageDialog(null, "You logged in as Instructor");
-				InstructorWindow InstructorWindow = new InstructorWindow();
-			}
-			else if(username.equals("Luis"))
-			{
-				JOptionPane.showMessageDialog(null, "You logged in as Faculty/Staff");
-				FacultyWindow FacultyWindow = new FacultyWindow();
-			}
-			else
-			{
-				JOptionPane.showMessageDialog(null, "Invalid Username/Password, please check your credentials and try again", null, JOptionPane.ERROR_MESSAGE);
+			char[] password = pwdPassword.getPassword();
+			try {
+				if(db.userLogin(username,password).resultrole=="Users.faculty")
+				{
+					FacultyWindow FacultyWindow = new FacultyWindow((faculty)db.userLogin(username,password).result);
+					dispose();
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "Invalid Username/Password, please check your credentials and try again", null, JOptionPane.ERROR_MESSAGE);
+				}
+			} catch (HeadlessException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (ClassNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
 		}
-		dispose();
+		
 		
 	}
 }

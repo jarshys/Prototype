@@ -4,10 +4,27 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.io.IOException;
+
 import javax.swing.JButton;
 import javax.swing.border.BevelBorder;
 
-public class ResetPasswordWindow extends JFrame {
+import Database.Database;
+import Users.user;
+
+import javax.swing.SwingConstants;
+
+public class ResetPasswordWindow extends JFrame implements KeyListener, ActionListener {
+	private JLabel lblFullName;
+	private JLabel lblAddress;
+	private JLabel lblPhoneNumber;
+	private JLabel lblEmail;
+	private JLabel lblRole;
 	/**
 	 * 
 	 */
@@ -15,7 +32,7 @@ public class ResetPasswordWindow extends JFrame {
 	public ResetPasswordWindow() {
 	JFrame frmCreateUser = new JFrame("Create User");
 	frmCreateUser.setTitle("Reset Password");
-	frmCreateUser.setBounds(100, 100, 445, 329);
+	frmCreateUser.setBounds(100, 100, 445, 303);
 	frmCreateUser.setLocationRelativeTo(null); //center window on screen
 	JPanel panel = new JPanel();
 
@@ -27,42 +44,41 @@ public class ResetPasswordWindow extends JFrame {
 	panel.add(lblSearchById);
 	
 	textField = new JTextField();
+	textField.addKeyListener(this);
 	textField.setColumns(10);
 	textField.setBounds(10, 28, 414, 20);
 	panel.add(textField);
 	
 	JButton btnResetPassword = new JButton("Reset Password");
-	btnResetPassword.setBounds(10, 261, 414, 23);
+	btnResetPassword.addActionListener(this);
+	btnResetPassword.setBounds(10, 235, 414, 23);
 	panel.add(btnResetPassword);
 	
 	JPanel panel_1 = new JPanel();
 	panel_1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-	panel_1.setBounds(10, 59, 414, 191);
+	panel_1.setBounds(10, 59, 414, 165);
 	panel.add(panel_1);
 	panel_1.setLayout(null);
 	
-	JLabel lblFirstName = new JLabel("First Name:");
-	lblFirstName.setBounds(10, 11, 99, 14);
-	panel_1.add(lblFirstName);
+	lblFullName = new JLabel("Name:");
+	lblFullName.setBounds(10, 11, 394, 14);
+	panel_1.add(lblFullName);
 	
-	JLabel lblLastName = new JLabel("Last Name:");
-	lblLastName.setBounds(10, 36, 99, 14);
-	panel_1.add(lblLastName);
-	
-	JLabel lblAddress = new JLabel("Address:");
-	lblAddress.setBounds(10, 61, 99, 14);
+	lblAddress = new JLabel("Address:");
+	lblAddress.setVerticalAlignment(SwingConstants.TOP);
+	lblAddress.setBounds(10, 36, 394, 44);
 	panel_1.add(lblAddress);
 	
-	JLabel lblPhoneNumber = new JLabel("Phone Number:");
-	lblPhoneNumber.setBounds(10, 116, 99, 14);
+	lblPhoneNumber = new JLabel("Phone Number:");
+	lblPhoneNumber.setBounds(10, 91, 394, 14);
 	panel_1.add(lblPhoneNumber);
 	
-	JLabel lblEmail = new JLabel("Email:");
-	lblEmail.setBounds(10, 141, 99, 14);
+	lblEmail = new JLabel("Email:");
+	lblEmail.setBounds(10, 116, 394, 14);
 	panel_1.add(lblEmail);
 	
-	JLabel lblRole = new JLabel("Role:");
-	lblRole.setBounds(10, 166, 99, 14);
+	lblRole = new JLabel("Role:");
+	lblRole.setBounds(10, 141, 394, 14);
 	panel_1.add(lblRole);
 	frmCreateUser.setVisible(true);
 	}
@@ -70,4 +86,48 @@ public class ResetPasswordWindow extends JFrame {
 	
 	private static final long serialVersionUID = -322498080578139492L;
 	private JTextField textField;
+	private user userresult;
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		JButton caller = (JButton) arg0.getSource();
+		
+		if(caller.getText().equals("Reset Password"))
+		{
+			Database db = new Database();
+			try {
+				db.resetpassword(userresult);
+			} catch (NumberFormatException | IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		
+	}
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void keyReleased(KeyEvent e) {
+		if(e.getKeyCode()==10){
+			int idtosearch = Integer.parseInt(textField.getText());
+			Database db = new Database();
+			userresult = db.searchallbyid(idtosearch);
+			if(userresult != null)
+			{
+				lblFullName.setText("Name: "+userresult.getName());
+				lblAddress.setText("Address: "+userresult.getAddress());
+				lblPhoneNumber.setText("Phone: "+userresult.getNumber());
+				lblEmail.setText("Email: "+userresult.getEmail());
+				lblRole.setText("Role: "+userresult.getClass().getName());
+			}
+		}
+		
+	}
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 }
