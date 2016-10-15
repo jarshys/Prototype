@@ -74,7 +74,7 @@ public class LoginWindow extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
-		if(e.getSource() == btnLogin)
+		if(e.getSource() == btnLogin && (!txtUsername.getText().equals("") && !pwdPassword.getPassword().equals("")))
 		{
 			String username = txtUsername.getText();
 			char[] password = pwdPassword.getPassword();

@@ -2,6 +2,7 @@ package Windows.Faculty;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -105,12 +106,7 @@ public class ResetPasswordWindow extends JFrame implements KeyListener, ActionLi
 	}
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void keyReleased(KeyEvent e) {
-		if(e.getKeyCode()==10){
+		if(e.getKeyCode()==10 && (!textField.getText().equals(""))){
 			int idtosearch = Integer.parseInt(textField.getText());
 			Database db = new Database();
 			userresult = db.searchallbyid(idtosearch);
@@ -122,12 +118,22 @@ public class ResetPasswordWindow extends JFrame implements KeyListener, ActionLi
 				lblEmail.setText("Email: "+userresult.getEmail());
 				lblRole.setText("Role: "+userresult.getClass().getName());
 			}
-		}
-		
+			else 
+				{
+
+					JOptionPane.showMessageDialog(this,"No user was found with that id","OK",JOptionPane.ERROR_MESSAGE);
+
+				}
+			}
 	}
 	@Override
+	public void keyReleased(KeyEvent e) {
+
+	}
+		
+	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
+
 		
 	}
 }

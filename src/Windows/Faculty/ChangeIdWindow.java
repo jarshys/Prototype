@@ -2,6 +2,7 @@ package Windows.Faculty;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -101,14 +102,11 @@ public class ChangeIdWindow extends JFrame implements KeyListener, ActionListene
 	private JTextField textField;
 	private JTextField textField_1;
 	@Override
-	public void keyPressed(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void keyReleased(KeyEvent arg0) {
-		if(arg0.getKeyCode()==10){
+	public void keyPressed(KeyEvent e) {
+		if(e.getKeyCode()==10 && (!textField.getText().equals(""))){
+			
 			int idtosearch = Integer.parseInt(textField.getText());
+			
 			Database db = new Database();
 			userresult = db.searchallbyid(idtosearch);
 			if(userresult != null)
@@ -119,13 +117,21 @@ public class ChangeIdWindow extends JFrame implements KeyListener, ActionListene
 				lblEmail.setText("Email: "+userresult.getEmail());
 				lblRole.setText("Role: "+userresult.getClass().getName());
 			}
+			else{
+				JOptionPane.showMessageDialog(null, "No user was found with that id", null, JOptionPane.ERROR_MESSAGE);
+			}
 		}
+	}
+		
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+
 		
 	}
 	@Override
-	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public void keyTyped(KeyEvent e) {
+
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
