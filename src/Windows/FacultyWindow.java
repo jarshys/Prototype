@@ -16,11 +16,11 @@ import Users.faculty;
 
 public class FacultyWindow extends JFrame implements ActionListener {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -8437962221390200655L;
-
+/**
+ * 
+ * @param user 
+ */
 	public FacultyWindow(faculty user) {
 		// TODO Auto-generated method stub
 		JFrame frame = new JFrame("Faculty");

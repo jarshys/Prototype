@@ -1,22 +1,17 @@
 package Users;
 /**
  * Create a faculty user using a super class User
- * @author Luis
+ * @author Codebuster
  *
  */
 
 public class faculty extends user {
 
-	/**
-	 * Class Faculty
-	 * @Variable 
-	 * 
-	 */
 	private static final long serialVersionUID = 5150529805879291221L;
 	private int department;
 /**
- * 	
- * @param id A faculty ID
+ * 	Constructor
+ * @param id A unique faculty ID
  * @param name Faculty name
  * @param password Faculty password
  * @param address Faculty address

@@ -17,14 +17,9 @@ import Windows.Student.scheduleWindow;
 
 public class StudentWindow extends JFrame implements ActionListener {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 8887427084755705187L;
 
 	public StudentWindow() {
-		// TODO Auto-generated method stub
-
 		JFrame frame = new JFrame("Student");
 		frame.setBounds(100, 100, 498, 345);
 		frame.setLocationRelativeTo(null);

@@ -17,10 +17,6 @@ import javax.swing.JLabel;
 
 public class LoginWindow extends JFrame implements ActionListener{
 
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -4168293935018626013L;
 	private JTextField txtUsername;
 	private JPasswordField pwdPassword;

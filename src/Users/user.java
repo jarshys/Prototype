@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package Users;
 /**
  * 
@@ -8,8 +6,8 @@ package Users;
 import java.io.Serializable;
 /**
  * 
- * @author Luis
- *
+ * @author Codebuster
+ *Super Class User 
  */
 public class user implements Serializable{
 /**
@@ -23,13 +21,13 @@ private String address;
 private String number;
 private String email;
 /**
- * 
- * @param id
- * @param name
- * @param password
- * @param address
- * @param number
- * @param email
+ * Constructor
+ * @param id A unique User id
+ * @param name User Name
+ * @param password User Password
+ * @param address User Address
+ * @param number User number
+ * @param email User email
  */
 public user(int id, String name, String password, String address,String number,String email){
 	this.setId(id);
@@ -41,84 +39,84 @@ public user(int id, String name, String password, String address,String number,S
 }
 /**
  * 
- * @return
+ * @return Return user id
  */
 public int getId() {
 	return id;
 }
 /**
  * 
- * @param id
+ * @param id Assign user id
  */
 public void setId(int id) {
 	this.id = id;
 }
 /**
  * 
- * @return
+ * @return Return user name
  */
 public String getName() {
 	return name;
 }
 /**
  * 
- * @param name
+ * @param name Assign user name
  */
 public void setName(String name) {
 	this.name = name;
 }
 /**
  * 
- * @return
+ * @return Return user password
  */
 public String getPassword() {
 	return password;
 }
 /**
  * 
- * @param password
+ * @param password Assign user password
  */
 public void setPassword(String password) {
 	this.password = password;
 }
 /**
  * 
- * @return
+ * @return Return user address
  */
 public String getAddress() {
 	return address;
 }
 /**
  * 
- * @param address
+ * @param address Assign user address
  */
 public void setAddress(String address) {
 	this.address = address;
 }
 /**
  * 
- * @return
+ * @return Return user number
  */
 public String getNumber() {
 	return number;
 }
 /**
  * 
- * @param number
+ * @param number Assign user number
  */
 public void setNumber(String number) {
 	this.number = number;
 }
 /**
  * 
- * @return
+ * @return Return user email
  */
 public String getEmail() {
 	return email;
 }
 /**
  * 
- * @param email
+ * @param email Assign user email
  */
 public void setEmail(String email) {
 	this.email = email;
@@ -130,7 +128,7 @@ public void sendpassword(){
 	System.out.println("Sending password ("+password+") to " + name +" - "+ email);
 }
 /**
- * 
+ * Print all the information about the user
  */
 public void print()
 {

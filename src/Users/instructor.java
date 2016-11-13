@@ -1,22 +1,18 @@
-/**
- * 
- */
+
 package Users;
 /**
- * Create an Instructor user using a super class user
+ * Create an Instructor user using a super class user.
  * @author Codebuster
  *
  */
 public class instructor extends user {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = -343477414282033618L;
 	private String dateHired;
 	private Boolean hasTenure;
 	private int[] currentCourses;
 /**
- * 
+ * Constructor 
  * @param id A unique Instructor id
  * @param name Instructor name
  * @param password Instructor Password
@@ -37,7 +33,7 @@ public class instructor extends user {
 	}
 /**
  * 
- * @param dateHired When instructor is hire
+ * @param dateHired When instructor is hired
  */
 	public void setDateHired(String dateHired) {
 		this.dateHired = dateHired;

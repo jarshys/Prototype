@@ -13,7 +13,13 @@ import java.util.Iterator;
 
 
 import Users.*;
-
+/**
+ * 
+ * @author CodeBuster
+ * 
+ *Save all the users from the system using a 
+ *Hashset data structure.
+ */
 public class Database {
 HashSet<instructor> instructors = new HashSet<instructor>();
 HashSet<faculty> allfaculty = new HashSet<faculty>();
