@@ -1,3 +1,6 @@
+/**
+ * Contain all the windows for each user
+ */
 package Windows;
 
 import java.awt.event.ActionEvent;
@@ -14,7 +17,12 @@ import Windows.Student.addDropWindow;
 import Windows.Student.gradesWindow;
 import Windows.Student.graduationWindow;
 import Windows.Student.scheduleWindow;
-
+/**
+ * 
+ * @author CodeBuster
+ * @version 4
+ *
+ */
 public class StudentWindow extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 8887427084755705187L;

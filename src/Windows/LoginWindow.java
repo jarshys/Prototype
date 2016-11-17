@@ -1,3 +1,6 @@
+/**
+ * Contain all the windows for each user
+ */
 package Windows;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -14,7 +17,12 @@ import Users.faculty;
 
 import javax.swing.JPasswordField;
 import javax.swing.JLabel;
-
+/**
+ * 
+ * @author CodeBuster
+ * @version 4
+ *
+ */
 public class LoginWindow extends JFrame implements ActionListener{
 
 	private static final long serialVersionUID = -4168293935018626013L;

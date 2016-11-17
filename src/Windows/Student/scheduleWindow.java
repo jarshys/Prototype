@@ -1,3 +1,6 @@
+/**
+ * Contains all the classes from Students
+ */
 package Windows.Student;
 
 import javax.swing.DefaultComboBoxModel;
@@ -6,12 +9,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
-
+/**
+ * Class to see schedule for the semester.
+ * @author CodeBuster
+ * @version 4
+ *
+ */
 public class scheduleWindow extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 7232415692440713536L;
 
 	public scheduleWindow() {

@@ -1,3 +1,6 @@
+/**
+ * Contains all the Classes from Faculty
+ */
 package Windows.Faculty;
 
 import javax.swing.JFrame;
@@ -19,16 +22,18 @@ import Database.Database;
 import Users.user;
 
 import javax.swing.SwingConstants;
-
+/**
+ * Window to reset passwords from any user
+ * @author CodeBuster
+ * @version 4
+ *
+ */
 public class ResetPasswordWindow extends JFrame implements KeyListener, ActionListener {
 	private JLabel lblFullName;
 	private JLabel lblAddress;
 	private JLabel lblPhoneNumber;
 	private JLabel lblEmail;
 	private JLabel lblRole;
-	/**
-	 * 
-	 */
 	
 	public ResetPasswordWindow() {
 	JFrame frmCreateUser = new JFrame("Create User");

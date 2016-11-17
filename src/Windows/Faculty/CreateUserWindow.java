@@ -1,3 +1,6 @@
+/**
+ * Contains all the Classes from Faculty
+ */
 package Windows.Faculty;
 
 import javax.swing.JFrame;
@@ -16,7 +19,11 @@ import java.io.IOException;
 
 import javax.swing.DefaultComboBoxModel;
 
-
+/**
+ * Window to create any user.
+ * @author CodeBuster
+ * @version 4
+ */
 
 public class CreateUserWindow extends JFrame implements ActionListener {
 	public ActionListener createuser;

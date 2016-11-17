@@ -14,11 +14,10 @@ import java.util.Iterator;
 
 import Users.*;
 /**
- * 
+ * Save all the users from the system using a Hashset.
  * @author CodeBuster
+ * @version 4
  * 
- *Save all the users from the system using a 
- *Hashset data structure.
  */
 public class Database {
 HashSet<instructor> instructors = new HashSet<instructor>();
@@ -34,8 +33,6 @@ public Database() {
 		e.printStackTrace();
 	}
 }
-
-
 
 public void insertestdata() {
 	
@@ -64,7 +61,10 @@ public void insertestdata() {
 	students.add(s2);
 	students.add(s3);
 }
-
+/**
+ * 
+ * @return
+ */
 public int nextstudentid() {
 	int currentid = -1;
 	
@@ -72,7 +72,10 @@ public int nextstudentid() {
 		currentid = c.getId();
 	return currentid+1;
 }
-
+/**
+ * 
+ * @return
+ */
 public int nextfacultyid() {
 	int currentid = -1;
 	
@@ -80,7 +83,10 @@ public int nextfacultyid() {
 		currentid = c.getId();
 	return currentid+1;
 }
-
+/**
+ * 
+ * @return
+ */
 public int nextinstructorid() {
 	int currentid = -1;
 	
@@ -88,7 +94,11 @@ public int nextinstructorid() {
 		currentid = c.getId();
 	return currentid+1;
 }
-
+/**
+ * 
+ * @param id
+ * @return
+ */
 public instructor searchInstructorbyId(int id)
 {
 	instructor r = null;
@@ -100,7 +110,11 @@ public instructor searchInstructorbyId(int id)
 	
 	return r;
 }
-
+/**
+ * 
+ * @param id
+ * @return
+ */
 public student searchStudentbyId(int id)
 {
 	student r = null;
@@ -112,7 +126,11 @@ public student searchStudentbyId(int id)
 	
 	return r;
 }
-
+/**
+ * 
+ * @param id
+ * @return
+ */
 public faculty searchFacultybyId(int id)
 {
 	faculty r = null;
@@ -124,7 +142,11 @@ public faculty searchFacultybyId(int id)
 	
 	return r;
 }
-
+/**
+ * 
+ * @param id
+ * @return
+ */
 public user searchallbyid(int id)
 {
 	user facultyresult = searchFacultybyId(id);
@@ -139,7 +161,10 @@ public user searchallbyid(int id)
 	return null;
 }
 
-
+/**
+ * 
+ * @throws IOException
+ */
 public void writedata() throws IOException{
 	@SuppressWarnings("resource")
 	ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("test"));
@@ -147,7 +172,12 @@ public void writedata() throws IOException{
 	oos.writeObject(allfaculty);
 	oos.writeObject(students);
 }
-
+/**
+ * 
+ * @throws FileNotFoundException
+ * @throws IOException
+ * @throws ClassNotFoundException
+ */
 @SuppressWarnings("unchecked")
 public void readdata() throws FileNotFoundException, IOException, ClassNotFoundException {
 	@SuppressWarnings("resource")
@@ -173,6 +203,7 @@ public void printAllFaculty() {
 		current.print();
 	}	
 }
+
 public void printAllStudents() {
 	Iterator<student> Iterator = this.students.iterator();
 	while(Iterator.hasNext())
@@ -187,13 +218,19 @@ public void printAllRecords(){
 	printAllInstructors();
 	printAllStudents();
 }
-
+/**
+ * 
+ * @throws IOException
+ */
 public void insertmainadmin() throws IOException {
 	faculty mainadmin = new faculty(nextfacultyid(), "Jorge Dominguez", "1234", "123 test ave.", "915-123-4567", "jdominguez11@miners.utep.edu");
 	allfaculty.add(mainadmin);
 	this.writedata();
 }
-
+/**
+ * 
+ * @throws IOException
+ */
 public void cleardatafile() throws IOException {
 	this.instructors = new HashSet<instructor>();
 	this.allfaculty = new HashSet<faculty>();
@@ -201,7 +238,12 @@ public void cleardatafile() throws IOException {
 	
 	this.writedata();
 }
-
+/**
+ * 
+ * @param username
+ * @param password
+ * @return
+ */
 private Object findbyCredentials(String username, String password) {
 	int id = Integer.parseInt(username);
 	for(faculty c : this.allfaculty)
@@ -211,7 +253,15 @@ private Object findbyCredentials(String username, String password) {
 	}
 	return new FindError("Couldn't find anyone by id: "+id);
 }
-
+/**
+ * 
+ * @param username
+ * @param password
+ * @return
+ * @throws FileNotFoundException
+ * @throws ClassNotFoundException
+ * @throws IOException
+ */
 
 public LoginResult userLogin(String username, char[] password) throws FileNotFoundException, ClassNotFoundException, IOException {
 	this.readdata();
@@ -220,12 +270,10 @@ public LoginResult userLogin(String username, char[] password) throws FileNotFou
 	String resultrole = result.getClass().getName();	
 	return new LoginResult(resultrole, result);
 }
-
-
-
-
-
-
+/**
+ * 
+ * @return
+ */
 
 private String generatepassword() {
 	
@@ -242,6 +290,14 @@ private String generatepassword() {
 
 	return password.toString();
 }
+/**
+ * 
+ * @param name
+ * @param address
+ * @param number
+ * @param email
+ * @throws IOException
+ */
 public void addStudent(String name, String address, String number, String email) throws IOException {
 	int id = nextstudentid();
 	String password = generatepassword();
@@ -252,7 +308,14 @@ public void addStudent(String name, String address, String number, String email)
 	students.add(studenttoadd);
 	writedata();
 }
-
+/**
+ * 
+ * @param name
+ * @param address
+ * @param number
+ * @param email
+ * @throws IOException
+ */
 
 public void addFaculty(String name, String address, String number, String email) throws IOException {
 	int id = nextfacultyid();
@@ -265,7 +328,14 @@ public void addFaculty(String name, String address, String number, String email)
 	writedata();
 	
 }
-
+/**
+ * 
+ * @param name
+ * @param address
+ * @param number
+ * @param email
+ * @throws IOException
+ */
 public void addInstructor(String name, String address, String number, String email) throws IOException {
 	int id = nextinstructorid();
 	String password = generatepassword();
@@ -277,7 +347,12 @@ public void addInstructor(String name, String address, String number, String ema
 	writedata();	
 }
 
-
+/**
+ * 
+ * @param userresult
+ * @param newid
+ * @throws IOException
+ */
 
 public void changeid(user userresult, int newid) throws IOException {
 	searchallbyid(userresult.getId()).setId(newid);
@@ -285,7 +360,11 @@ public void changeid(user userresult, int newid) throws IOException {
 	searchallbyid(newid).print();
 }
 
-
+/**
+ * 
+ * @param userresult
+ * @throws IOException
+ */
 
 public void resetpassword(user userresult) throws IOException {
 	

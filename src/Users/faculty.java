@@ -1,13 +1,19 @@
+/**
+ * Provides all the classes of users.
+ */
 package Users;
 /**
  * Create a faculty user using a super class User
- * @author Codebuster
+ * @author CodeBuster
+ * @version 4
  *
  */
-
 public class faculty extends user {
 
 	private static final long serialVersionUID = 5150529805879291221L;
+/**
+ * Department where faculty works
+ */	
 	private int department;
 /**
  * 	Constructor

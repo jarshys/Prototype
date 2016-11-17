@@ -1,7 +1,11 @@
+/**
+ * Provides all the classes of users.
+ */
 package Users;
 /**
  * Create a Student user using a super class user.
- * @author Codebuster
+ * @author CodeBuster
+ * @version 4
  *
  */
 public class student extends user {
@@ -11,7 +15,7 @@ public class student extends user {
 	private int[] semesterstaken;
 	
 /**
- * Costructor
+ * Constructor
  * @param id A unique Student id
  * @param name Student name
  * @param password Student password

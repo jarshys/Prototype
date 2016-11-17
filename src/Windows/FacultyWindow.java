@@ -1,3 +1,6 @@
+/**
+ * Contain all the windows for each user
+ */
 package Windows;
 
 import java.awt.event.ActionEvent;
@@ -13,7 +16,12 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 import Users.faculty;
-
+/**
+ * 
+ * @author CodeBuster
+ * @version 4
+ *
+ */
 public class FacultyWindow extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = -8437962221390200655L;

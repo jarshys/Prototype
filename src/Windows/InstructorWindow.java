@@ -1,3 +1,6 @@
+/**
+ * Contain all the windows for each user
+ */
 package Windows;
 
 import java.awt.event.ActionEvent;
@@ -11,7 +14,12 @@ import Windows.Instructor.*;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
-
+/**
+ * 
+ * @author CodeBuster
+ * @version 4
+ *
+ */
 public class InstructorWindow extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 5513864781481112888L;
 

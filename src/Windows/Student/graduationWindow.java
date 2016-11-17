@@ -1,15 +1,20 @@
+/**
+ * Contains all the classes from Students
+ */
 package Windows.Student;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
-
+/**
+ * Class to check status if student is ready to graduate.
+ * @author CodeBuster
+ * @version 4
+ *
+ */
 public class graduationWindow extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -8535309493471552162L;
 
 	public graduationWindow() {

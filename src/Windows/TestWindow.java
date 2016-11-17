@@ -1,3 +1,6 @@
+/**
+ * Contain all the windows for each user
+ */
 package Windows;
 
 import javax.swing.JFrame;
@@ -6,18 +9,18 @@ import java.awt.event.ActionEvent;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
-
+/**
+ * 
+ * @author CodeBuster
+ * @version 4
+ *
+ */
 public class TestWindow extends JFrame implements ActionListener{
 
-
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 6723070314875070399L;
-
 	/**
-	 * Create the application.
+	 * Create the principal windows to test where we can link to the other windows
+	 * 
 	 */
 	public TestWindow() {
 		setTitle("Registration System Testing Panel");

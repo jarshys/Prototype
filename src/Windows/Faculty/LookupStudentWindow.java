@@ -1,3 +1,6 @@
+/**
+ * Contains all the Classes from Faculty
+ */
 package Windows.Faculty;
 
 import javax.swing.JFrame;
@@ -6,11 +9,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.border.BevelBorder;
-
+/**
+ * 
+ * @author CodeBuster
+ * @version 4
+ *
+ */
 public class LookupStudentWindow extends JFrame {
-	/**
-	 * 
-	 */
 	
 	public LookupStudentWindow() {
 	JFrame frmCreateUser = new JFrame("Create User");

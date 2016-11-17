@@ -1,32 +1,31 @@
-
-package Users;
 /**
- * 
+ * Provides all the classes of users.
  */
+package Users;
+
 import java.io.Serializable;
 /**
+ * Super Class User provides all the methods to set the personal information from all users.
+ * @author CodeBuster
+ * @version 4
  * 
- * @author Codebuster
- *Super Class User 
  */
 public class user implements Serializable{
-/**
- * 
- */
+
 	private static final long serialVersionUID = 8439464442677055059L;
-private int id;
-private String name;
-private String password;
-private String address;
-private String number;
-private String email;
+	private int id;
+	private String name;
+	private String password;
+	private String address;
+	private String number;
+	private String email;
 /**
  * Constructor
  * @param id A unique User id
  * @param name User Name
  * @param password User Password
  * @param address User Address
- * @param number User number
+ * @param number User phone number
  * @param email User email
  */
 public user(int id, String name, String password, String address,String number,String email){
@@ -102,7 +101,7 @@ public String getNumber() {
 }
 /**
  * 
- * @param number Assign user number
+ * @param number Assign user phone number
  */
 public void setNumber(String number) {
 	this.number = number;

@@ -1,3 +1,6 @@
+/**
+ * Provides the classes to Faculty to implement all the methods
+ */
 package Windows.Faculty;
 
 import javax.swing.JFrame;
@@ -18,7 +21,12 @@ import javax.swing.border.BevelBorder;
 import Database.Database;
 import Users.user;
 import javax.swing.SwingConstants;
-
+/**
+ * Window to change ID's for any user.
+ * @author CodeBuster
+ * @version 4
+ *
+ */
 public class ChangeIdWindow extends JFrame implements KeyListener, ActionListener {
 	private JLabel lblFullName;
 	private JLabel lblAddress;

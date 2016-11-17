@@ -1,3 +1,6 @@
+/**
+ * Contains all the classes from Students
+ */
 package Windows.Student;
 
 import javax.swing.DefaultComboBoxModel;
@@ -8,12 +11,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.BevelBorder;
-
+/**
+ * Class to register to courses on a specific semester.
+ * @author CodeBuster
+ * @version 4
+ *
+ */
 public class RegisterWindow extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public RegisterWindow() {

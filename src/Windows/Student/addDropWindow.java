@@ -1,3 +1,6 @@
+/**
+ * Contains all the classes from Students
+ */
 package Windows.Student;
 
 import javax.swing.JButton;
@@ -6,12 +9,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.BevelBorder;
-
+/**
+ * Class to add or drop a course.
+ * @author CodeBuster
+ * @version 4
+ *
+ */
 public class addDropWindow extends JFrame{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField textField;
 

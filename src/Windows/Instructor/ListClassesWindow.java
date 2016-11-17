@@ -1,3 +1,6 @@
+/**
+ * Contains all the classes for Instructor
+ */
 package Windows.Instructor;
 
 import javax.swing.DefaultComboBoxModel;

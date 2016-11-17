@@ -1,8 +1,11 @@
-
+/**
+ * Provides all the classes of users.
+ */
 package Users;
 /**
  * Create an Instructor user using a super class user.
- * @author Codebuster
+ * @author CodeBuster
+ * @version 4
  *
  */
 public class instructor extends user {
