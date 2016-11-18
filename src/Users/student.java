@@ -46,7 +46,7 @@ public class student extends user {
 	}
 /**
  * 
- * @return Return the current semeter
+ * @return Return the current semester
  */
 
 	public int getCurrentsemester() {
@@ -85,8 +85,19 @@ public class student extends user {
 /**
  * Student can check when could graduate
  */
-	public void checkGraduation(){
-		
+	public Boolean getGraduationStatus() {
+		if(this.getClass().getName() != "Users.student")
+		{
+			return false;
+		}
+		if(this.numberofclassestaken>=30)
+			return true;
+		return false;
+
+	}
+	private void setclassses(int i)
+	{
+		this.numberofclassestaken = i;
 	}
 /**
  * Student can check the semester schedule

@@ -10,6 +10,8 @@ public class Application {
 	public static void main(String[] args) throws IOException, ClassNotFoundException
 	{
 		Database db = new Database();
+//		db.cleardatafile();
+//		db.insertmainadmin();
 		db.printAllRecords();
 		TestWindow TestPan = new TestWindow();
 		TestPan.setVisible(true);

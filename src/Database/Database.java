@@ -34,66 +34,7 @@ public Database() {
 	}
 }
 
-public void insertestdata() {
-	
-	instructor i1 = new instructor(nextinstructorid(), "Jorge Dominguez", "asdf", "123 test", "915-123-1234", "jorge@test.com");
-	instructor i2 = new instructor(3, "Juan Perez", "asdf", "123 test", "915-123-1234", "jorge@test.com");
-	instructor i3 = new instructor(nextinstructorid(), "Rodlfo Gonzalez", "asdf", "123 test", "915-123-1234", "jorge@test.com");
-	
-	faculty f1 = new faculty(nextfacultyid(), "f1 Gonzalez", "asdf", "123 test", "915-123-1234", "jorge@test.com");
-	faculty f2 = new faculty(nextfacultyid(), "f2 Gonzalez", "asdf", "123 test", "915-123-1234", "jorge@test.com");
-	faculty f3 = new faculty(nextfacultyid(), "f3 Gonzalez", "asdf", "123 test", "915-123-1234", "jorge@test.com");
-	
-	student s1 = new student(nextstudentid(), "s1 Gonzalez", "asdf", "123 test", "915-123-1234", "jorge@test.com");
-	student s2 = new student(nextstudentid(), "s2 Gonzalez", "asdf", "123 test", "915-123-1234", "jorge@test.com");
-	student s3 = new student(nextstudentid(), "s3 Gonzalez", "asdf", "123 test", "915-123-1234", "jorge@test.com");
-	
 
-	instructors.add(i1);
-	instructors.add(i2);
-	instructors.add(i3);
-	
-	allfaculty.add(f1);
-	allfaculty.add(f2);
-	allfaculty.add(f3);
-	
-	students.add(s1);
-	students.add(s2);
-	students.add(s3);
-}
-/**
- * 
- * @return
- */
-public int nextstudentid() {
-	int currentid = -1;
-	
-	for(student c : students)
-		currentid = c.getId();
-	return currentid+1;
-}
-/**
- * 
- * @return
- */
-public int nextfacultyid() {
-	int currentid = -1;
-	
-	for(faculty c : allfaculty)
-		currentid = c.getId();
-	return currentid+1;
-}
-/**
- * 
- * @return
- */
-public int nextinstructorid() {
-	int currentid = -1;
-	
-	for(instructor c : instructors)
-		currentid = c.getId();
-	return currentid+1;
-}
 /**
  * 
  * @param id
@@ -218,12 +159,56 @@ public void printAllRecords(){
 	printAllInstructors();
 	printAllStudents();
 }
+
+public int nextid() {
+
+	Iterator<instructor> Iteratori = this.instructors.iterator();
+	int id = 0;
+	while(Iteratori.hasNext())
+	{
+		Iteratori.next();
+			id++;
+	}	
+	Iterator<faculty> Iteratorf = this.allfaculty.iterator();
+	while(Iteratorf.hasNext())
+	{
+		Iteratorf.next();
+			id++;
+	}	
+	Iterator<student> Iterators = this.students.iterator();
+	while(Iterators.hasNext())
+	{
+		Iterators.next();
+		id++;
+	}
+	return id+1;
+}
+
+public int count() {
+	Iterator<instructor> Iteratori = this.instructors.iterator();
+	int count = 0;
+	while(Iteratori.hasNext())
+	{
+		count++;
+	}	
+	Iterator<faculty> Iteratorf = this.allfaculty.iterator();
+	while(Iteratorf.hasNext())
+	{
+		count++;
+	}	
+	Iterator<student> Iterators = this.students.iterator();
+	while(Iterators.hasNext())
+	{
+		count++;
+	}
+	return count;
+}
 /**
  * 
  * @throws IOException
  */
 public void insertmainadmin() throws IOException {
-	faculty mainadmin = new faculty(nextfacultyid(), "Jorge Dominguez", "1234", "123 test ave.", "915-123-4567", "jdominguez11@miners.utep.edu");
+	faculty mainadmin = new faculty(0, "Jorge Dominguez", "1234", "123 test ave.", "915-123-4567", "jdominguez11@miners.utep.edu");
 	allfaculty.add(mainadmin);
 	this.writedata();
 }
@@ -299,7 +284,7 @@ private String generatepassword() {
  * @throws IOException
  */
 public void addStudent(String name, String address, String number, String email) throws IOException {
-	int id = nextstudentid();
+	int id = nextid();
 	String password = generatepassword();
 	student studenttoadd = new student(id, name, password, address, number, email);
 	System.out.println("Adding user: ");
@@ -318,7 +303,7 @@ public void addStudent(String name, String address, String number, String email)
  */
 
 public void addFaculty(String name, String address, String number, String email) throws IOException {
-	int id = nextfacultyid();
+	int id = nextid();
 	String password = generatepassword();
 	faculty facultytoadd = new faculty(id, name, password, address, number, email);
 	System.out.println("Adding user: ");
@@ -337,7 +322,7 @@ public void addFaculty(String name, String address, String number, String email)
  * @throws IOException
  */
 public void addInstructor(String name, String address, String number, String email) throws IOException {
-	int id = nextinstructorid();
+	int id = nextid();
 	String password = generatepassword();
 	instructor instructortoadd = new instructor(id, name, password, address, number, email);
 	System.out.println("Adding user: ");
