@@ -236,6 +236,16 @@ private Object findbyCredentials(String username, String password) {
 		if(c.getId() == id && c.getPassword().equals(password))
 			return c;
 	}
+	for(instructor c : this.instructors)
+	{
+		if(c.getId() == id && c.getPassword().equals(password))
+			return c;
+	}
+	for(student c : this.students)
+	{
+		if(c.getId() == id && c.getPassword().equals(password))
+			return c;
+	}
 	return new FindError("Couldn't find anyone by id: "+id);
 }
 /**

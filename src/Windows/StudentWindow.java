@@ -12,11 +12,14 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import Users.student;
 import Windows.Student.RegisterWindow;
 import Windows.Student.addDropWindow;
 import Windows.Student.gradesWindow;
 import Windows.Student.graduationWindow;
 import Windows.Student.scheduleWindow;
+import javax.swing.SwingConstants;
+import java.awt.Font;
 /**
  * 
  * @author CodeBuster
@@ -26,15 +29,20 @@ import Windows.Student.scheduleWindow;
 public class StudentWindow extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 8887427084755705187L;
-
-	public StudentWindow() {
+	/**
+	 * 
+	 * @param user 
+	 */
+	public StudentWindow(student user) {
 		JFrame frame = new JFrame("Student");
 		frame.setBounds(100, 100, 498, 345);
 		frame.setLocationRelativeTo(null);
 		frame.getContentPane().setLayout(null);
 
-		JLabel lblWelcomeJohnSmith = new JLabel("Welcome John Smith (Student)");
-		lblWelcomeJohnSmith.setBounds(10, 11, 462, 14);
+		JLabel lblWelcomeJohnSmith = new JLabel("Welcome" +user.getName());
+		lblWelcomeJohnSmith.setFont(new Font("Tahoma", Font.BOLD, 17));
+		lblWelcomeJohnSmith.setHorizontalAlignment(SwingConstants.CENTER);
+		lblWelcomeJohnSmith.setBounds(0, 0, 482, 286);
 		frame.getContentPane().add(lblWelcomeJohnSmith);
 
 		JMenuBar menuBar = new JMenuBar();

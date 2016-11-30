@@ -16,6 +16,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 import Users.faculty;
+import javax.swing.SwingConstants;
+import java.awt.Font;
 /**
  * 
  * @author CodeBuster
@@ -37,7 +39,9 @@ public class FacultyWindow extends JFrame implements ActionListener {
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblWelcomeJohnSmith = new JLabel("Welcome "+user.getName());
-		lblWelcomeJohnSmith.setBounds(10, 11, 462, 14);
+		lblWelcomeJohnSmith.setFont(new Font("Tahoma", Font.BOLD, 17));
+		lblWelcomeJohnSmith.setHorizontalAlignment(SwingConstants.CENTER);
+		lblWelcomeJohnSmith.setBounds(0, 0, 482, 286);
 		frame.getContentPane().add(lblWelcomeJohnSmith);
 		
 		JMenuBar menuBar = new JMenuBar();

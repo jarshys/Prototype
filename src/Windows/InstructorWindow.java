@@ -9,11 +9,14 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import Users.instructor;
 import Windows.Instructor.*;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.SwingConstants;
+import java.awt.Font;
 /**
  * 
  * @author CodeBuster
@@ -22,23 +25,25 @@ import javax.swing.JMenuItem;
  */
 public class InstructorWindow extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 5513864781481112888L;
-
-
-
-	public InstructorWindow() {
+	/**
+	 * 
+	 * @param user 
+	 */
+	public InstructorWindow(instructor user) {
 		// TODO Auto-generated method stub
-		JFrame frmInstructor = new JFrame("Faculty");
-		frmInstructor.setTitle("Instructor");
-		frmInstructor.setBounds(100, 100, 498, 345);
-		frmInstructor.setLocationRelativeTo(null);
-		frmInstructor.getContentPane().setLayout(null);
+		JFrame frame = new JFrame("Instructor");
+		frame.setBounds(100, 100, 498, 345);
+		frame.setLocationRelativeTo(null);
+		frame.getContentPane().setLayout(null);
 		
-		JLabel lblWelcomeJohnSmith = new JLabel("Welcome John Smith (Instructor)");
-		lblWelcomeJohnSmith.setBounds(10, 11, 462, 14);
-		frmInstructor.getContentPane().add(lblWelcomeJohnSmith);
+		JLabel lblWelcomeJohnSmith = new JLabel("Welcome "+user.getName());
+		lblWelcomeJohnSmith.setFont(new Font("Tahoma", Font.BOLD, 17));
+		lblWelcomeJohnSmith.setHorizontalAlignment(SwingConstants.CENTER);
+		lblWelcomeJohnSmith.setBounds(0, 0, 482, 286);
+		frame.getContentPane().add(lblWelcomeJohnSmith);
 		
 		JMenuBar menuBar = new JMenuBar();
-		frmInstructor.setJMenuBar(menuBar);
+		frame.setJMenuBar(menuBar);
 		
 		JMenu mnClasses = new JMenu("Classes");
 		menuBar.add(mnClasses);
@@ -52,7 +57,7 @@ public class InstructorWindow extends JFrame implements ActionListener {
 			mnClasses.getItem(i-1).addActionListener(this);			
 		}
 		
-		frmInstructor.setVisible(true);
+		frame.setVisible(true);
 		
 
 	}
