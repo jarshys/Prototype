@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import Database.Database;
 import Windows.LoginWindow;
-import Windows.TestWindow;
+
 
 public class Application {
 	
@@ -13,7 +13,15 @@ public class Application {
 		Database db = new Database();
 //		db.cleardatafile();
 //		db.insertmainadmin();
+		
+		//db.insertCourses();
+		//db.removeSemesters();
+		//db.insertSemesters();
+		//db.insertCourses();
+		//db.removeCourses();
 		db.printAllRecords();
+		
+		
 //		TestWindow TestPan = new TestWindow();
 //		TestPan.setVisible(true);
 		LoginWindow Login = new LoginWindow();

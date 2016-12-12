@@ -53,9 +53,6 @@ public class StudentWindow extends JFrame implements ActionListener {
 
 		JMenuItem mntmNewMenuItem = new JMenuItem("Register");
 		mnRegistration.add(mntmNewMenuItem);
-
-		JMenuItem mntmNewMenuItem1 = new JMenuItem("Add/Drop");
-		mnRegistration.add(mntmNewMenuItem1);
 		
 		JMenu mnRegistration1 = new JMenu("Student Records");
 		menuBar.add(mnRegistration1);

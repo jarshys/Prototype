@@ -1,16 +1,21 @@
 package Database;
 
 import java.io.FileInputStream;
+
 import java.util.Random;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
-
+import java.util.List;
 
 import Users.*;
 /**
@@ -23,6 +28,8 @@ public class Database {
 HashSet<instructor> instructors = new HashSet<instructor>();
 HashSet<faculty> allfaculty = new HashSet<faculty>();
 HashSet<student> students = new HashSet<student>();
+HashSet<Semester> semesters = new HashSet<Semester>();
+HashSet<course> courses = new HashSet<course>();
 
 
 public Database() {
@@ -112,6 +119,8 @@ public void writedata() throws IOException{
 	oos.writeObject(instructors);
 	oos.writeObject(allfaculty);
 	oos.writeObject(students);
+	oos.writeObject(semesters);
+	oos.writeObject(courses);
 }
 /**
  * 
@@ -126,6 +135,8 @@ public void readdata() throws FileNotFoundException, IOException, ClassNotFoundE
 	instructors = (HashSet<instructor>)ois.readObject();
 	allfaculty = (HashSet<faculty>)ois.readObject();
 	students = (HashSet<student>)ois.readObject();
+	semesters = (HashSet<Semester>)ois.readObject();
+	courses = (HashSet<course>)ois.readObject();
 }
 
 public void printAllInstructors() {
@@ -145,6 +156,16 @@ public void printAllFaculty() {
 	}	
 }
 
+public void removeSemesters() {
+	semesters.clear();
+	try {
+		writedata();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+}
+
 public void printAllStudents() {
 	Iterator<student> Iterator = this.students.iterator();
 	while(Iterator.hasNext())
@@ -154,11 +175,45 @@ public void printAllStudents() {
 	}	
 }
 
+public List<String> SemesterList() {
+	List<String> ret = new ArrayList<String>();
+	Iterator<Semester> Iterator = this.semesters.iterator();
+	while(Iterator.hasNext())
+	{
+		Semester current = Iterator.next();
+		ret.add(current.getName());
+	}
+	return ret;	
+}
+
 public void printAllRecords(){
 	printAllFaculty();
 	printAllInstructors();
 	printAllStudents();
+	printAllSemesters();
+	printAllCourses();
 }
+
+private void printAllCourses() {
+	Iterator<course> Iterator = this.courses.iterator();
+	while(Iterator.hasNext())
+	{
+		course current = Iterator.next();
+		current.print();
+	}
+	
+}
+
+
+private void printAllSemesters() {
+	Iterator<Semester> Iterator = this.semesters.iterator();
+	while(Iterator.hasNext())
+	{
+		Semester current = Iterator.next();
+		current.print();
+	}
+}
+
 
 public int nextid() {
 
@@ -181,6 +236,20 @@ public int nextid() {
 		Iterators.next();
 		id++;
 	}
+	Iterator<Semester> Iteratorsem = this.semesters.iterator();
+	while(Iteratorsem.hasNext())
+	{
+		Iteratorsem.next();
+		id++;
+	}
+	
+	Iterator<course> Iteratorco = this.courses.iterator();
+	while(Iteratorco.hasNext())
+	{
+		Iteratorco.next();
+		id++;
+	}
+	
 	return id+1;
 }
 
@@ -373,9 +442,94 @@ public void resetpassword(user userresult) throws IOException {
 }
 
 
+public void insertSemesters() {
+	
+	DateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
+
+	try {
+		Semester spring17 = new Semester(nextid(), "Spring 2017", df.parse("01/14/2017"), df.parse("05/11/2017"));
+		semesters.add(spring17);
+		writedata();
+		
+		Semester fall17 = new Semester(nextid(), "Fall 2017", df.parse("08/19/2017"), df.parse("12/14/2017"));
+		semesters.add(fall17);
+		writedata();
+		
+		Semester spring18 = new Semester(nextid(), "Spring 2018", df.parse("01/14/2018"), df.parse("05/11/2018"));
+		semesters.add(spring18);
+		writedata();
+	} catch (ParseException | IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+
+}
 
 
+public void insertCourses() {
+	course c1 = new course(nextid(), "Math 1317",  randomSemester(), randomInstructor());
+	courses.add(c1);
+	course c2 = new course(nextid(), "Math 1318",  randomSemester(), randomInstructor());
+	courses.add(c2);
+	course c3= new course(nextid(), "Math 1319",  randomSemester(), randomInstructor());
+	courses.add(c3);
+	course c4 = new course(nextid(), "Math 1320",  randomSemester(), randomInstructor());
+	courses.add(c4);
+	
+	try {
+		writedata();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+}
 
+
+private instructor randomInstructor() {
+	
+	List<instructor> list = new ArrayList<instructor>(instructors);
+	
+	Collections.shuffle(list);
+	
+	list.get(0).print();
+	return list.get(0);
+}
+
+
+private Semester randomSemester() {
+	List<Semester> list = new ArrayList<Semester>(semesters);
+	
+	Collections.shuffle(list);
+	
+	list.get(0).print();
+	return list.get(0);
+}
+
+
+public void removeCourses() {
+	courses.clear();
+	try {
+		writedata();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+}
+
+
+public List<String> courseList(String selectedSemester) {
+	List<String> ret = new ArrayList<String>();
+	Iterator<course> Iterator = this.courses.iterator();
+	while(Iterator.hasNext())
+	{
+		course current = Iterator.next();
+		if(current.getSemester().getName()==selectedSemester)
+			ret.add(current.getName());
+	}
+	return ret;	
+
+}
 
 
 }
